@@ -1,108 +1,115 @@
-﻿// Задайте массив заполненный случайными
-// трёхзначными числами. Напишите программу,
-// которая покажет количество чётных чисел в
-// массиве.
+﻿// Напишите программу, которая на вход принимает позиции элемента в двумерном массиве, 
+// и возвращает значение этого элемента или же указание, что такого элемента нет.
+// 4 3 1 (1,2) => 9
+// 2 6 9 
+// using System.Linq;
+// using System.Text.RegularExpressions;
 
-// int[] array = new int[4];
-
-// CreateArray();
-// System.Console.WriteLine(FindCount());
-
-// int[] CreateArray()
-// {
-//     for (int i = 0; i < array.Length; i++)
-//     {
-//         array[i] = new Random().Next(100, 1000);
-//         System.Console.Write(array[i] + " ");
-//     }
-//     return array;
-// }
-
-
-// FindCount();
-// int FindCount()
-// {
-//     int count =0;
-//     for (int i = 0; i < array.Length; i++)
-//     {
-//         if(array[i] % 2 ==0)
-//         {
-//             count++;
-//         }
-//     }
-//     return count;
-// }
-
-
-//  Напишите программу, которая перевернёт
-// одномерный массив (первый элемент станет
-// последним, второй – предпоследним и т.д.)
-
-
-// System.Console.WriteLine("введите размер массива");
-// int num = Convert.ToInt32(Console.ReadLine());
-// int[] array = new int[num];
+// int[,] array = new int[2, 3];
 
 // void CreateArray()
 // {
-//     for (int i = 0; i < array.Length; i++)
+//     for (int i = 0; i < array.GetLength(0); i++)
 //     {
-//         array[i] = new Random().Next(1, 20);
-//         Console.Write(array[i] + " ");
+//         for (int j = 0; j < array.GetLength(1); j++)
+//         {
+//             array[i, j] = new Random().Next(1, 10);
+//         }
 //     }
 // }
+// CreateArray();
 
-// void FlipArray()
+// void PrintArray()
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < array.GetLength(1); j++)
+//         {
+//             System.Console.Write(array[i, j] + " ");
+//         }
+//         System.Console.WriteLine();
+//     }
+//     System.Console.WriteLine();
+// }
+
+// PrintArray();
+
+// Console.WriteLine("введите строку элемента");
+// int a = Convert.ToInt32(Console.ReadLine());
+
+// Console.WriteLine("введите столбец элемента");
+// int b = Convert.ToInt32(Console.ReadLine());
+
+// if(a > 2 || b > 3)
+// Console.WriteLine("такого элемента нет");
+// else
+// {
+//     System.Console.WriteLine(array[a,b]);
+// }
+
+
+// Задайте двумерный массив. Напишите
+// программу, которая поменяет местами первую и
+// последнюю строку массива. 
+// 4 3 1 => 4 6 2
+// 2 6 9    2 6 9
+// 4 6 2    4 3 1
+
+// int[,] array = new int[2, 3];
+// int[,] array2 = new int[2, 3];
+
+// void CreateArray()
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < array.GetLength(1); j++)
+//         {
+//             array[i, j] = new Random().Next(1, 10);
+//         }
+//     }
+// }
+// CreateArray();
+
+// void PrintArray(int [,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < array.GetLength(1); j++)
+//         {
+//             System.Console.Write(array[i, j] + " ");
+//         }
+//         System.Console.WriteLine();
+//     }
+//     System.Console.WriteLine();
+// }
+// PrintArray(array);
+
+// int[,] FlipArray()
 // {
 //     int temp = 0;
-//     int n = array.Length;
-//     int k = n / 2;
-//     for (int i = 0; i < k; i++)
 //     {
-//         temp = array[i];
-//         array[i] = array[n - 1];
-//         array[n - 1] = temp;
-//         n--;
+//         for (int i = 0; i < array.GetLength(1); i++)
+//         {
+//             temp = array[0, i];
+//             array[0, i] = array[1,i];
+//             array[1, i] = temp;
+//         }
 //     }
+//     return array;
 // }
-
-// CreateArray();
 // FlipArray();
-// Console.WriteLine();
 
-// for (int i = 0; i < array.Length; i++)
+// void PrintArray2()
 // {
-//     System.Console.Write($" {array[i]}");
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < array.GetLength(1); j++)
+//         {
+//             System.Console.Write(array[i,j] +" ");
+//         }
+//         System.Console.WriteLine();
+//     }
+//     System.Console.WriteLine();
 // }
+// PrintArray2();
 
-
-// Напишите программу, которая бесконечно
-// запрашивает целые числа с консоли. Программа
-// завершается при вводе символа ‘q’ или при вводе
-// числа, сумма цифр которого четная. // сумма? стринг в инт? функция?
-
-
-// for (int i = 0; ; i++)
-// {
-//     Console.WriteLine("Введите число");
-//     string stop = Console.ReadLine();
-
-//     if (stop == "q")
-//     {
-//         break;
-//     }
-//     int num = Convert.ToInt32(stop);
-//     int sum = 0;
-//     int copyNum = num;
-
-//     while (copyNum > 0)
-//     {
-//         sum = sum + copyNum % 10;
-//         copyNum = copyNum / 10;
-//     }
-
-//     if (sum % 2 == 0)
-//     {
-//         break;
-//     }
-// }
