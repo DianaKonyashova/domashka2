@@ -1,53 +1,63 @@
-﻿// Задайте двумерный массив символов (тип char [,]). 
-// Создать строку из символов этого массива
-// a b c => “abcdef”
-// d e f 
+﻿// Задайте значения M и N. Напишите программу, которая выведет 
+// все натуральные числа в промежутке от M до N. 
+// Использовать рекурсию, не использовать циклы. // 2 3 4 5 6 
 
-// char[,] matrix = new char[2, 3] { { 'a', 'b', 'c' }, { 'd', 'e', 'f' } };
-// string str = " ";
+// using System.Reflection;
 
-// for (int i = 0; i < matrix.GetLength(0); i++)
+// int M = 2;
+// int N = 6;
+
+// void GetNum(int M, int N)
 // {
-//     for (int j = 0; j < matrix.GetLength(1); j++)
+//     System.Console.WriteLine(M);
+//     if (M >= N)
 //     {
-//             str += matrix[i,j];
+//         return;
 //     }
+//     GetNum(M + 1, N);
 // }
-// System.Console.WriteLine(str);
 
-// Задайте строку, содержащую латинские буквы
-// в обоих регистрах. Сформируйте строку, в которой все
-// заглавные буквы заменены на строчные. // “aBcD1ef!-” => “abcd1ef!-”
+// Напишите программу вычисления функции
+// Аккермана с помощью рекурсии. Даны два
+// неотрицательных числа m и n. 
 
-// string str1 = "aBcD1ef!-";
-// string str2 = str1.ToLower(); 
-// System.Console.WriteLine(str2);
 
-// // Задайте произвольную строку. Выясните,
-// // является ли она палиндромом.
-
-// System.Console.WriteLine("введите строку");
-// string str = Console.ReadLine();
-
-// int n = str.Length / 2;
-// bool palindrome = false;
-// for (int i = 0; i < n; i++)
+// int foo(int n, int m)
 // {
-//     if (str[i] != str[str.Length - 1 - i])
+
+//     if (n == 0)
 //     {
-//         palindrome = false;
-//         break;
+//         return m + 1;
+//     }
+//     else if ((n != 0) && (m == 0))
+//     {
+//         return foo(n - 1, 1);
 //     }
 //     else
 //     {
-//         palindrome = true;
+//         return foo(n - 1, foo(n, m - 1));
 //     }
+
 // }
-// if (palindrome == true)
+
+// int result = foo(3, 2);
+// System.Console.WriteLine(result);
+
+
+
+// Задайте произвольный массив. Выведете
+// его элементы, начиная с конца. Использовать
+// рекурсию, не использовать циклы.
+
+// int [] array = new int [] {5, 2, 2, 6, 21, 1};
+
+// void ReverseArray (int []array,int num)
 // {
-//     System.Console.WriteLine("yes");
-// }
-// else
-// {
-//     System.Console.WriteLine("no");
-// }
+//     System.Console.WriteLine(array[num]);
+//     if(num==0) 
+//     {
+//         return;
+//     }
+//     ReverseArray(array, num - 1);
+// } 
+// ReverseArray(array, array.Length - 1);
